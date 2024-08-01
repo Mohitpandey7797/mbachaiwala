@@ -1,9 +1,14 @@
 import IntroVideo from "./components/IntroVideo";
 import Section from "./components/Section";
+import Misc from "./components/Misc";
+
 import "./styles/App.scss";
 import "./styles/intro.scss";
 import "./styles/section.scss";
 import "./styles/footer.scss";
+import "./styles/mediaQuery.scss"
+import "./styles/misc.scss"
+
 
 
 
@@ -140,6 +145,9 @@ function App() {
         btnBgColor={brown}
         btnColor={yellow}
       />
+
+      <Misc/>
+
        <Footer />
   </>
 }
