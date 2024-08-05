@@ -6,9 +6,8 @@ import "./styles/App.scss";
 import "./styles/intro.scss";
 import "./styles/section.scss";
 import "./styles/footer.scss";
-import "./styles/mediaQuery.scss"
 import "./styles/misc.scss"
-
+import "./styles/mediaQuery.scss"
 
 
 
@@ -25,6 +24,7 @@ import chaiWalaImg from "./assets/image3.png"
 import data from "./data/data.json"
 
 import Footer from "./components/Footer";
+import { useEffect } from "react";
 
 const yellow = "#fff100", pink= "#ed1e79", red = "#d20120", white = "#fff", brown = "#6d3d0f"
 
@@ -33,6 +33,35 @@ function App() {
 
   const {freshTopic, freshTopic2, tedTalks, franchise, map, courses, album, barat, chaiwala} = data;
 
+  const dotCursor = (e)=>{
+    const cursor = document.querySelector(".cursor");
+    cursor.style.top=`${e.pageY-14}px`
+    cursor.style.left=`${e.pageX-14}px`
+
+    const element = e.target;
+
+    if (element.getAttribute("data-cursorpointer")) {
+      cursor.classList.add("cursorHover");
+    } else if (element.getAttribute("data-cursorpointermini")) {
+      cursor.classList.add("cursorHoverMini");
+    } else {
+      cursor.classList.remove("cursorHover");
+      cursor.classList.remove("cursorHoverMini");
+    }
+
+  }
+
+
+  
+
+  useEffect(()=>{
+
+    window.addEventListener("mousemove",dotCursor)
+     return()=>{
+      window.removeEventListener("mousemove",dotCursor)
+     }
+
+  })
   return <>
     <IntroVideo />
 
